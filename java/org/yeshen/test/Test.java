@@ -8,6 +8,6 @@ public final class Test {
 
   public static void main(String[] args) {
     System.out.println(new HiHi(s1).get());
-    // System.out.println(new Jni().stringFromJNI());
+    System.out.println(new Jni().stringFromJNI());
   }
 }
