@@ -7,9 +7,7 @@ public final class Test {
   public static final String s1 = "hello Yeshen";
 
   public static void main(String[] args) {
-    HiHi hi = new HiHi(s1);
-    Jni jni = new Jni();
-    System.out.println(hi.get());
-    System.out.println(jni.stringFromJNI());
+    System.out.println(new HiHi(s1).get());
+    // System.out.println(new Jni().stringFromJNI());
   }
 }

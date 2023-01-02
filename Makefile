@@ -12,14 +12,22 @@ build_linux_so:
 	grep -rnw './java' -e 'native' | cut -d":" -f1 | xargs javac -h cpp/jni
 
 	echo ":build so---"
-	gcc -fPIC -I"/usr/lib/jvm/java-11-openjdk-amd64/include" \
-	-I"/usr/lib/jvm/java-11-openjdk-amd64/include/linux" \
-	-shared -o build/libhello.so cpp/*.c
+	gcc -fPIC -I"${JAVA_HOME}/include" \
+		-I"${JAVA_HOME}/include/linux" \
+		-shared -o build/libhello.so cpp/*.c
 
-test:
+linux:
 	make build_jar
 	make build_linux_so
 	java -Djava.library.path=./build -classpath build/out.jar org.yeshen.test.Test
+
+android:
+	echo "android"
+	make build_jar
+	cd ./build && dx --dex --output=classes.dex out.jar \
+		&& aapt add android_out.jar classes.dex && cd ..
+	adb push build/android_out.jar /sdcard/Download/ 
+	adb shell dalvikvm -classpath /sdcard/Download/android_out.jar org.yeshen.test.Test
 
 clean :
 	rm -rf build
