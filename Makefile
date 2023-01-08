@@ -24,7 +24,7 @@ linux:
 
 build_android_jar:
 	make build_jar
-	cd ./build && dx --dex --output=classes.dex out.jar \
+	cd ./build && d8 --output ./ out.jar \
 		&& aapt add android_out.jar classes.dex && cd ..
 	ls -alh build/android_out.jar
 

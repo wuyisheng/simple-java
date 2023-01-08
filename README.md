@@ -29,12 +29,21 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 
 export ANDROID_BUILD_HOME=${your-dir-of-ndk-bundle-toolchains}
+export ANDROID_CLANG=aarch64-linux-android29-clang
 export PATH=${your-dir-of-Android-build-tools}:$PATH
 export PATH=${your-dir-of-Android-platform-tools}:$PATH
 # eg: 
+# ubuntu
 # export ANDROID_BUILD_HOME=/home/yeshen/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64
 # export PATH=/home/yeshen/Android/Sdk/build-tools/30.0.3:$PATH
 # export PATH=/home/yeshen/Android/Sdk/platform-tools:$PATH
+# export ANDROID_CLANG=aarch64-linux-android30-clang
+# 
+# mac
+# export ANDROID_BUILD_HOME="/Users/yeshen/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64"
+# export PATH=/Users/yeshen/Library/Android/sdk/build-tools/29.0.3:$PATH
+# export ANDROID_CLANG=aarch64-linux-android29-clang
+# 
 #
 # How to get this (I mean Android-build-tools) ?
 # See: 
